@@ -1,9 +1,11 @@
-const QuestionBlock = ({choice, quizItemId, setChosenAnswer, chosenAnswer, unansweredQuestionIds, setUnansweredQuestionIds}) => {
-    const [active, setActive] = useState(false);
-    let isActive = false;
-    let classes = "choice-btn";
-    classes += isActive === true ? "active" : "";
-    const handleClick = (e) => {
+// import {useState} from 'react';
+const QuestionBlock = ({choices, choice, quizItemId, setChosenAnswer, chosenAnswer, unansweredQuestionIds, setUnansweredQuestionIds}) => {
+    // const [active, setActive] = useState();
+    // let isActive = active;
+    // let classes = "choice-btn";
+    // classes += isActive === true ? " active" : "";
+    const handleClick = () => {
+        // setActive(choice.text);
         if(unansweredQuestionIds.includes(quizItemId) === false) {
             setChosenAnswer(prevState => {
                 let list = [...prevState];
@@ -14,13 +16,14 @@ const QuestionBlock = ({choice, quizItemId, setChosenAnswer, chosenAnswer, unans
             setChosenAnswer((prevState) => [...prevState, choice.text]);
             setUnansweredQuestionIds(unansweredQuestionIds.filter((id) => id !== quizItemId));
         }
-        isActive = true;
-        setActive(true);
+        // isActive = true;
+        // console.log(active === choice.text)
     };
 
     return (
         <>
-            <button className={isActive} onClick={handleClick}>
+        {/* key={choice.text} active={active === choice.text} */}
+            <button className="choice-btn"  onClick={handleClick}>
                 {choice.text}
             </button>
         </>

@@ -43,6 +43,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
+    
 }
 /*Navbar*/
 nav {
@@ -113,6 +114,10 @@ nav {
 /*Homepage*/
 .hero-container {
     flex: 1 1 auto;
+    background: linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)), url(../img/products.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .hero {
     display: flex;
@@ -209,6 +214,48 @@ nav {
 }
 .hidden {
     display: none;
+}
+
+/*Skin Concerns Page*/
+.title-container {
+    height: 43vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/texture.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.title-page {
+    font-family: "Spectral", serif;
+    font-size: 4em;
+    margin: 0;
+    text-align: center;
+}
+.info-cards {
+    margin: 50px 40px;
+}
+/* .info-container:nth-of-type(odd) {
+    display: flex;
+    flex-direction: row;
+}
+.info-container:nth-of-type(even) {
+    display: flex;
+    flex-direction: row-reverse;
+} */
+.info-container {
+    display: grid;
+    grid-column-gap: calc(1rem * 2 + 1px);
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: 1fr;
+}
+.info-container img {
+    grid-row: 1 / 1;
+    grid-column: span 6;
+}
+.info-container p {
+    grid-row: 1 / 1;
+    grid-column: span 5;
 }
 
 /*Footer*/

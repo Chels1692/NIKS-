@@ -3,8 +3,8 @@ import {Link} from "react-router-dom";
 import caret from "../img/caretdown.png";
 
 const Header = () => {
-    const products = ["Cleansers", "Treatments & Serums", "Moisturizers", "SPF"];
-    const skinConcerns = ["Acne", "Aging", "Redness", "Texture", "Pigmentation"];
+    const products = ["Cleansers", "Treatments, Toners & Serums", "Exfoliators", "Moisturizers", "SPF"];
+    const skinConcerns = ["Acne", "Aging", "Texture", "Pigmentation", "Medical"];
     const skinTypes = ["Oily", "Dry", "Combination", "Normal"];
 
     return (

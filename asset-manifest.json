@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ff6f6365.css",
+    "main.js": "/static/js/main.f12442a2.js",
+    "static/media/products.jpg": "/static/media/products.085e108ffc78024304de.jpg",
+    "static/media/texture.jpg": "/static/media/texture.035550f3f3b6373e7ea9.jpg",
+    "static/media/Spectral-Bold.ttf": "/static/media/Spectral-Bold.79f938afd3444ee07b82.ttf",
+    "static/media/Chivo-VariableFont_wght.ttf": "/static/media/Chivo-VariableFont_wght.9d619c1c485f7d283613.ttf",
+    "index.html": "/index.html",
+    "main.ff6f6365.css.map": "/static/css/main.ff6f6365.css.map",
+    "main.f12442a2.js.map": "/static/js/main.f12442a2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff6f6365.css",
+    "static/js/main.f12442a2.js"
+  ]
+}

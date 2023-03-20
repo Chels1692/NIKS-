@@ -17,8 +17,8 @@
   "scripts": {
     "start:frontend": "react-scripts start",
     "start:backend": "npx json-server --watch db/quizdb.json --port 8000",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -b main -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b main -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

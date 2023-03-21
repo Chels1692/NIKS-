@@ -114,7 +114,7 @@ nav {
 /*Homepage*/
 .hero-container {
     flex: 1 1 auto;
-    background: linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)), url(../img/products.jpg);
+    background: linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)), url(../img/home.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -234,28 +234,48 @@ nav {
 }
 .info-cards {
     margin: 50px 40px;
-}
-/* .info-container:nth-of-type(odd) {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
 }
-.info-container:nth-of-type(even) {
-    display: flex;
-    flex-direction: row-reverse;
-} */
+.info-card {
+    max-width: 1220px;
+    padding-bottom: 20px;
+}
 .info-container {
     display: grid;
     grid-column-gap: calc(1rem * 2 + 1px);
     grid-template-columns: repeat(11, 1fr);
     grid-template-rows: 1fr;
 }
+.card-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 15px;
+}
+.card-title h2 {
+    padding-right: 10px;
+    font-size: 1.75em;
+}
+.card-title hr {
+    width: 100%;
+    border-left: none;
+}
 .info-container img {
     grid-row: 1 / 1;
     grid-column: span 6;
+    width: 100%;
 }
-.info-container p {
+.info-container div {
     grid-row: 1 / 1;
     grid-column: span 5;
+    display: flex;
+    flex-direction: column;
+}
+.info-container div a {
+    padding: 20px;
+    align-self: center;
 }
 
 /*Footer*/

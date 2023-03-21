@@ -13,11 +13,10 @@ import Footer from "./components/footer";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/NIKS-">
       <Routes>
-        <Route exact path='/' element={<Home />} />
+        <Route path='/' element={<Home />} />
         <Route path='/results' element={<><Header /><Results /></>} />
-        <Route path='/products' element={<><Header /><Products /></>} />
         <Route path='/products' element={<><Header /><Products /></>} />
         <Route path='/skin-concerns' element={<><Header /><Concerns /></>} />
         <Route path='/skin-types' element={<><Header /><Types /></>} />

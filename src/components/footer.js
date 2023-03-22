@@ -17,7 +17,10 @@ const Footer = () => {
                                     Cleansers
                                 </li>
                                 <li className="footer-item">
-                                    Treatments & Serums
+                                    Treatments, Toners & Serums
+                                </li>
+                                <li className="footer-item">
+                                    Exfoliators
                                 </li>
                                 <li className="footer-item">
                                     Moisturizers
@@ -30,20 +33,20 @@ const Footer = () => {
                         <li className="footer-title">
                             <Link to="/skin-concerns">SKIN CONCERNS</Link>
                             <ul id="primary-footer" data-visible="false" className="nested-footer-items">
-                            <li className="footer-item">
+                                <li className="footer-item">
                                     Acne
                                 </li>
                                 <li className="footer-item">
                                     Aging
                                 </li>
                                 <li className="footer-item">
-                                    Redness
-                                </li>
-                                <li className="footer-item">
                                     Texture
                                 </li>
                                 <li className="footer-item">
                                     Pigmentation
+                                </li>
+                                <li className="footer-item">
+                                    Medical
                                 </li>
                             </ul>
                         </li>
@@ -70,7 +73,7 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <p className="copyright">&copy; 2023 NIKES. All rights reserved.</p>
+            <p className="copyright">&copy; 2023 NIKS. All rights reserved.</p>
         </footer>
     );
 }

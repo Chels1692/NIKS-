@@ -32,6 +32,7 @@ const QuestionsBlock = ({length, quizItem, chosenAnswer, setChosenAnswer, unansw
                             key={_index}
                             quizItem={quizItem}
                             quizItemId={quizItem.id}
+                            choices={quizItem.choices}
                             choice={choice}
                             chosenAnswer={chosenAnswer}
                             setChosenAnswer={setChosenAnswer}

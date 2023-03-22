@@ -116,7 +116,7 @@ nav {
     flex: 1 1 auto;
     background: linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)), url(../img/home.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: 50% 5%;
     background-repeat: no-repeat;
 }
 .hero {

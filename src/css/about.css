@@ -1,0 +1,29 @@
+*{
+   box-sizing: border-box;
+}
+#navBar{
+   display: flex;
+   flex-direction: row;
+   color: blue;
+   text-align: center;
+   justify-content: center;
+   align-items: center;
+   gap: 1rem;
+}
+#aboutHead{
+   background-image: url("../img/products.jpg");
+   background-position: center;
+
+}
+#aboutText{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding: 5rem;
+}
+.paragraph{
+   text-align: center;
+   font-family: sans-serif;
+   font-size: 1rem;
+}

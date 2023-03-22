@@ -222,9 +222,11 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../img/texture.jpg);
     background-size: cover;
     background-position: center;
+}
+#skin-concerns {
+    background-image: url(../img/texture.jpg);
 }
 .title-page {
     font-family: "Spectral", serif;

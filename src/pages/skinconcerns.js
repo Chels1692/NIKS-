@@ -8,7 +8,7 @@ import pores from "../img/pores.png";
 const Concerns = () => {
     return (
         <main>
-            <div className="title-container">
+            <div className="title-container" id="skin-concerns">
                 <h1 className="title-page">SKIN CONCERNS</h1>
             </div>
             <div className="info-cards">

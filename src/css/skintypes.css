@@ -7,15 +7,8 @@
 .picDescription{
    display: flex;
    flex-direction: row;
-   gap:1.5rem;
-}
-.pics{
-   width:50%;
-   background-color: gray;
-}
-.descriptions{
-   width:50%;
+   gap: 1.5rem;
 }
 #skinTypes{
-   margin: 1.5rem;
+   background-image: url(../img/texture2.jpg);
 }

@@ -18,14 +18,20 @@ const QuestionBlock = ({choices, choice, quizItemId, setChosenAnswer, chosenAnsw
         }
         // isActive = true;
         // console.log(active === choice.text)
+
     };
 
     return (
         <>
         {/* key={choice.text} active={active === choice.text} */}
-            <button className="choice-btn"  onClick={handleClick}>
-                {choice.text}
-            </button>
+            <div>
+                <input type="radio" name={quizItemId} id={choice.text} value={choice.text}/>
+                <label className="choice-label" for={choice.text}>
+                <button className="choice-btn"  onClick={handleClick}>
+                    {choice.text}
+                </button>
+                </label>
+            </div>
         </>
     );
 }

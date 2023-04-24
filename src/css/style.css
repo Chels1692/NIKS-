@@ -206,14 +206,117 @@ nav {
     color: #0C343D;
     font-family: "Chivo", sans-serif;
     margin: 10px 15px 20px;
-    padding: 0.55rem 1.6rem;
     font-size: 1.17em;
+}
+.choice-label {
+    width: 100%;
+    padding: 0.55rem 1.6rem;
+    display: inline-block;
 }
 .active {
     background-color: #EA9999;
 }
 .hidden {
     display: none;
+}
+
+/*Quiz-Results*/
+#results-page {
+    background-image: url(../img/texture.jpg);
+}
+.quiz-results {
+    margin: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.results-products {
+    max-width: 1220px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+.results-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.results-container a {
+    color: inherit;
+    font-size: 0.85em;
+    white-space: nowrap;
+    padding-left: 10px;
+
+}
+.results-container h2 {
+    padding-right: 10px;
+    font-size: 1.75em;
+}
+.results-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em 1%;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px 0;
+}
+.product-card {
+    text-decoration: none;
+    color: inherit;
+    width: 24%;
+}
+.image-container {
+    background-color: orange;
+    height: 300px;
+}
+.name-container {
+    padding: 10px;
+}
+.product-card h6 {
+    margin: 0;
+    font-size: 0.65em;
+}
+.product-card p {
+    margin: 0;
+}
+
+/*Products Page*/
+.products-page {
+    display: flex;
+    flex-direction: column;
+    margin: 50px 40px;
+}
+.main-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 4em;
+}
+.filter-container {
+    width: 20%;
+}
+.item {
+    border-top: solid 1px #0C343D;
+    padding: 10px 5px;
+}
+.item-title h4 {
+    margin: 0;
+}
+.item-content ul {
+    list-style: none;
+    margin: 0;
+    padding: 5px 0 5px 5px;
+}
+.item-content ul li {
+    padding: 3.5px 0;
+}
+.item-content ul li input, .item-content ul li label {
+    cursor: pointer;
+}
+.products-container {
+    width: 80%;
 }
 
 /*Skin Concerns Page*/
@@ -226,7 +329,9 @@ nav {
     background-position: center;
 }
 #skin-concerns {
-    background-image: url(../img/texture.jpg);
+    background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0)), url(../img/texture3.jpg);
+    background-size: cover;
+    background-position: center;
 }
 .title-page {
     font-family: "Spectral", serif;
@@ -259,8 +364,9 @@ nav {
 .card-title h2 {
     padding-right: 10px;
     font-size: 1.75em;
+    white-space: nowrap;
 }
-.card-title hr {
+.card-title hr, .results-container hr {
     width: 100%;
     border-left: none;
 }

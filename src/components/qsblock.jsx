@@ -27,7 +27,7 @@ const QuestionsBlock = ({length, quizItem, chosenAnswer, setChosenAnswer, unansw
             <div className='questions-container'>
                 <h3 className="question-title">{quizItem.question}</h3>
                 <div className="choices-container">
-                    {quizItem.choices.map((choice, _index) => (
+                    {quizItem.choices && quizItem.choices?.map((choice, _index) => (
                         <QuestionBlock 
                             key={_index}
                             quizItem={quizItem}

@@ -3,7 +3,7 @@ import Header from "../components/header";
 import QuestionsBlock from "../components/qsblock";
 
 const Home = () => {
-    const [quiz, setQuiz] = useState(false);
+    // const [quiz, setQuiz] = useState(false);
     const [chosenAnswer, setChosenAnswer] = useState([]);
     const [unansweredQuestionIds, setUnansweredQuestionIds] = useState([]);
     const refs = unansweredQuestionIds && unansweredQuestionIds?.reduce((acc, id) => {
@@ -13,18 +13,18 @@ const Home = () => {
     const answerRef = createRef()
     const quizRef = useRef(null);
     const startQuizScroll = () => quizRef.current.scrollIntoView({behavior: 'smooth'})
-    const fetchData = async () => {
-        try {
-            const response = await fetch('http://localhost:8000/quiz');
-            const json = await response.json();
-            setQuiz(json);
-        } catch(err) {
-            console.log(err);
-        }
-    }
-    useEffect(() => {
-        fetchData();
-    }, [])
+    // const fetchData = async () => {
+    //     try {
+    //         const response = await fetch('http://localhost:8000/quiz');
+    //         const json = await response.json();
+    //         setQuiz(json);
+    //     } catch(err) {
+    //         console.log(err);
+    //     }
+    // }
+    // useEffect(() => {
+    //     fetchData();
+    // }, [])
     
     useEffect(() => {
         const unansweredIds = quiz && quiz?.map(({id}) => id);
@@ -61,5 +61,59 @@ const Home = () => {
         </>
     );
 };
+
+const quiz = [
+    {
+        id: 0,
+        question: "What is your skin type?",
+        choices: [
+            {
+                "text": "Oily"
+            },
+            {
+                "text": "Dry"
+            },
+            {
+                "text": "Combination"
+            },
+            {
+                "text": "Normal"
+            }
+        ]
+    },
+    {
+        id: 1,
+        question: "What is your top skin concern?",
+        choices: [
+            {
+                "text": "Acne"
+            },
+            {
+                "text": "Aging"
+            },
+            {
+                "text": "Redness"
+            },
+            {
+                "text": "Texture"
+            },
+            {
+                "text": "Pigmentation"
+            }
+        ]
+    },
+    {
+        id: 2,
+        question: "What are you looking for in a skin care routine?",
+        choices: [
+            {
+                "text": "Simple"
+            },
+            {
+                "text": "Expanded"
+            }
+        ]
+    }
+]
 
 export default Home;

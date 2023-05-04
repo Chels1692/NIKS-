@@ -17,35 +17,35 @@ const Description = () => {
          const response = await fetch(`http://localhost:8000/niks/product/${productId}`);
          const json = await response.json();
          setProduct(json);
+         getSimilars(json)
       } catch(err) {
          console.log(err);
       }
+      
    }
    const getRetailers = async () => {
       try {
-         const response = await fetch('http://localhost:8000/niks/buy');
+         const response = await fetch(`http://localhost:8000/niks/buy/${productId}`);
          const json = await response.json();
          setRetailers(json);
       } catch(err) {
          console.log(err);
       }
    }
-   // let concerns = product && product?.map((info) => info.skin_concerns.split(", "))[0];
-   // const type = productId.slice(-1);
-   // const getSimilars = async () => {
-   //    try {
-   //       const response = await fetch(`http://localhost:8000/niks/${type}`);
-   //       const json = await response.json();
-   //       console.log(json)
-   //       setSimilars(json);
-   //    } catch(err) {
-   //       console.log(err);
-   //    }
-   // }
+   const getSimilars = async (json) => {
+      const concerns = json && json?.map((info) => info.skin_concerns)[0];
+      const type = productId.slice(-1);
+      try {
+         const response = await fetch("http://localhost:8000/niks/" + type + "/" + concerns);
+         const json = await response.json();
+         setSimilars(json);
+      } catch(err) {
+         console.log(err);
+      }
+   }
    useEffect(() => {
       getProduct();
       getRetailers();
-      // getSimilars();
    }, [])
    return(
       <main>
@@ -91,12 +91,12 @@ const Description = () => {
             <div className='similar-products-container'>
                <h2 id="similarText">Similar Products</h2>
                <div id="similar">
-                  {/* {similars && similars?.map((similar, i) => (
+                  {similars && similars?.map((similar, i) => (
                      <ProductCard 
                      key={i}
                      product={similar}
                      />
-                  ))} */}
+                  ))}
                   {/* <img className="similarProducts" src="https://m.media-amazon.com/images/I/71Z-Dmc7RoL._SX679_.jpg" alt="product1"></img>
                   <img className="similarProducts" src="https://m.media-amazon.com/images/I/71Z-Dmc7RoL._SX679_.jpg" alt="product2"></img>
                   <img className="similarProducts" src="https://m.media-amazon.com/images/I/71Z-Dmc7RoL._SX679_.jpg" alt="product3"></img>

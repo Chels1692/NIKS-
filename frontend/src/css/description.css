@@ -1,0 +1,143 @@
+*{
+   box-sizing: border-box;
+}
+#productsPage {
+   max-width: 1220px;
+   padding: 0 16px;
+   margin: 50px auto;
+}
+#productDescription{
+   display: grid;
+   grid-column-gap: 1rem;
+   grid-template-columns: repeat(13,minmax(6.4%,1fr));
+   padding-bottom: 20px;
+   border-bottom: solid 2px #000000;
+}
+#left{
+   grid-column: 1/span 7;
+   grid-row: 1/span 8;
+   align-self: start;
+   position: sticky;
+   top: 2rem;
+}
+.product-img-container {
+   position: relative;
+   width: 100%;
+   padding-bottom: 100%;
+   display: block;
+   overflow: hidden;
+   background-color: #ffffff;
+}
+#productImg {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   max-width: 100%;
+   object-fit: contain;
+}
+#highlightText {
+   padding: 5px;
+   border-bottom-color: black;
+   border-bottom-style: solid;
+}
+.highlights {
+   display: flex;
+   flex-direction: row;
+   gap: 1rem;
+   list-style: none;
+   padding: 0 0 0 10px;
+}
+
+#right{
+   grid-column: 9/span 5;
+   display: flex;
+   flex-direction: column;
+}
+#right h3 {
+   margin: 0;
+   padding: 25px 0 5px;
+   font-size: 1em;
+   font-weight: 600;
+}
+#right h1 {
+   margin: 0 0 30px;
+   font-size: 2em;
+}
+.description-container {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: flex-start;
+}
+.descriptTabs {
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   justify-content: space-around;
+   gap: 1.5em;
+   align-items: center;
+   border-bottom: solid 2px black;
+   padding-bottom: 10px;
+}
+.desTabs {
+   font-weight: 700;
+   font-size: 1.05em;
+   padding-bottom: 2px;
+   text-align: center;
+   cursor: pointer;
+}
+.active-tab {
+   color: #D66309;
+   font-weight: 700;
+   border-bottom: solid 2px #D66309;
+}
+.content-container {
+   padding-left: 10px;
+   margin: 1.25em 0;
+}
+.desText{
+   display: none;
+}
+.desText h4 {
+   font-size: 1.25rem;
+   margin: 0 0 10px;
+}
+.desText p {
+   margin-top: 0;
+   font-size: 1em;
+}
+.active-content {
+   display: block;
+}
+
+
+/*Where to Buy*/
+#where{
+   margin-top: 0;
+   padding: 5px;
+   border-bottom-style: solid;
+   border-bottom-color: black;
+}
+#places{
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+}
+.retailer {
+   width:100%;
+}
+
+/*Similar Products*/
+#similarText{
+   margin-bottom: 1.5rem;
+}
+#similar{
+   display: flex;
+   flex-direction: row;
+   gap: 1.5rem;
+}
+.similarProducts{
+   width: 24%;
+}

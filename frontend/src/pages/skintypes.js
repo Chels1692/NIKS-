@@ -21,7 +21,7 @@ const Types = () => {
                     <div className="info-container">
                         <img className ="pics" src={normal} alt="normalPic"></img>
                         <div>
-                            <p className="descriptions">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero volutpat sed cras ornare arcu. Lectus vestibulum mattis ullamcorper velit sed ullamcorper. Vitae nunc sed velit dignissim. Felis eget velit aliquet sagittis. Enim nunc faucibus a pellentesque. At risus viverra adipiscing at in tellus integer. Volutpat commodo sed egestas egestas fringilla. Donec massa sapien faucibus et molestie. Odio facilisis mauris sit amet massa. Diam vel quam elementum pulvinar etiam non quam lacus. Tempor orci eu lobortis elementum nibh.</p>
+                            <p className="descriptions">Normal skin is balanced, meaning it is neither too dry nor too oily. People with normal skin are not prone to breakouts or sensitivity. They typically have small pores and a smooth skin texture. The best products for normal skin help maintain the skin’s hydration by locking in moisture and supporting the skin’s protective barrier. An ideal routine includes a gentle cleanser and a lightweight hydrating moisturizer. The best ingredients for normal skin are Vitamin C, Niacinamide, Peptides, Salicylic acid, and green tea.</p>
                             <Link to="/products">
                                 <button className="button button--pandora"><span>Products for Normal Skin</span></button>
                             </Link>
@@ -35,7 +35,7 @@ const Types = () => {
                     </div>
                     <div className="info-container">
                         <div>
-                            <p className="descriptions">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero volutpat sed cras ornare arcu. Lectus vestibulum mattis ullamcorper velit sed ullamcorper. Vitae nunc sed velit dignissim. Felis eget velit aliquet sagittis. Enim nunc faucibus a pellentesque. At risus viverra adipiscing at in tellus integer. Volutpat commodo sed egestas egestas fringilla. Donec massa sapien faucibus et molestie. Odio facilisis mauris sit amet massa. Diam vel quam elementum pulvinar etiam non quam lacus. Tempor orci eu lobortis elementum nibh.</p>
+                            <p className="descriptions">Oily skin is produced by sebaceous glands in the skin creating excess sebum. Sebum oily substance that is vital for hydrating and protecting the skin. Too much sebum causes the skin to appear shiny and feel greasy, specifically in the T-zone region (forehead, nose, and chin). People with oily skin may be prone to enlarged pores, acne, blackheads, and whiteheads. The best products for oily skin are gentle cleansers that effectively remove dirt and oil, and oil-free moisturizers that will hydrate the skin without adding extra oil. The best ingredients to treat and control oily skin are Glycolic acid, Hyaluronic acid, Niacinamide, and Salicylic acid. </p>
                             <Link to="/products">
                                 <button className="button button--pandora"><span>Products for Oily Skin</span></button>
                             </Link>
@@ -51,7 +51,7 @@ const Types = () => {
                     <div className="info-container">
                         <img className ="pics" src={dry} alt="dryPic"></img>
                         <div>
-                            <p className="descriptions">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero volutpat sed cras ornare arcu. Lectus vestibulum mattis ullamcorper velit sed ullamcorper. Vitae nunc sed velit dignissim. Felis eget velit aliquet sagittis. Enim nunc faucibus a pellentesque. At risus viverra adipiscing at in tellus integer. Volutpat commodo sed egestas egestas fringilla. Donec massa sapien faucibus et molestie. Odio facilisis mauris sit amet massa. Diam vel quam elementum pulvinar etiam non quam lacus. Tempor orci eu lobortis elementum nibh.</p>
+                            <p className="descriptions">People with dry skin produce less natural oils than the other skin types. This may cause the skin to appear rough, flakey, or dull and feel tight or dehydrated. Dry skin can also result from exposure to changing temperature or humidity levels, harsh soap or skincare products, and medical conditions like eczema. The best products for people with dry skin are gentle and hydrating moisturizers and fragrance-free and non-comedogenic. The best ingredients for soothing dry skin are Ceramides, Hyaluronic acid, Glycerin, Jojoba oil, and Aloe vera. </p>
                             <Link to="/products">
                                 <button className="button button--pandora"><span>Products for Dry Skin</span></button>
                             </Link>
@@ -65,7 +65,7 @@ const Types = () => {
                     </div>
                     <div className="info-container">
                         <div>
-                            <p className="descriptions">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero volutpat sed cras ornare arcu. Lectus vestibulum mattis ullamcorper velit sed ullamcorper. Vitae nunc sed velit dignissim. Felis eget velit aliquet sagittis. Enim nunc faucibus a pellentesque. At risus viverra adipiscing at in tellus integer. Volutpat commodo sed egestas egestas fringilla. Donec massa sapien faucibus et molestie. Odio facilisis mauris sit amet massa. Diam vel quam elementum pulvinar etiam non quam lacus. Tempor orci eu lobortis elementum nibh.</p>
+                            <p className="descriptions">Combination skin has areas that are dry as well as oily. People with combination skin typically have an oily T-zone caused by excess sebum production and cheeks that are either dry or normal. People with this skin type may be prone to acne, enlarged pores, blackheads, flakiness, and uneven skin texture. Oily skin can be caused by many factors such as stress, hormone fluctuation, and even the changing seasons. The best products for combination skin are cleansers that are effective at removing dirt and oil, as well as hydrating yet lightweight moisturizers. The best ingredients for combination skin are Hyaluronic acid, Ceramides, Salicylic acid, and Vitamin B5.</p>
                             <Link to="/products">
                                 <button className="button button--pandora"><span>Products for Combination Skin</span></button>
                             </Link>

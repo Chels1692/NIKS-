@@ -7,10 +7,11 @@ const About = () => {
                     <h1 className="title-page">ABOUT US</h1>
                 </div>
                 <div id="aboutText">
-                    <p class="paragraph">NIKS is designed to detail helpful ingredients and effective products to target specific skin concerns.</p>
-                    <p class="paragraph">Everybody has different skin types and concerns and deserves access to the information they need to achieve their skin goals.</p>
-                    <p class="paragraph">As people that have struggled to find skincare that works for us,we want to help others save time by giving them all the necessary information for beginners in one place.</p>
-                    <p class="paragraph"> All the skincare products we list on our websites are organic/animal cruelty free.</p>
+                    <p class="paragraph">NIKS has all the skincare information you need in one place. </p>
+                    <p class="paragraph"> Everyone has different skin types and concerns and deserves access to the information they need to achieve their skin goals. </p>
+                    <p class="paragraph"> NIKS is ideal for people that are new to skincare by providing ingredient information and product recommendations based on their specific skin concerns or types.</p>
+                    <p class="paragraph">  As people that have struggled with skincare in the past, we want to make skincare accessible to all people no matter their issue or education level. NIKS focuses on products that are vegan, cruelty-free, and fragrance-free.</p>
+                    <p class="paragraph">NIKS focuses on products that are vegan, cruelty-free, and fragrance-free.</p>
                 </div>
             </div>
         </div>

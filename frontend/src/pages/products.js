@@ -154,7 +154,21 @@ const Products = () => {
         getProducts();
         getBrands();
     }, [])
-
+    const[popup,setPop]=useState(false);
+    const handleClick=()=>{
+        setPop(!popup);
+    }
+    const [open,setOpen]=useState(null);
+    const toggle=i=>{
+        if(open===i){
+            return setOpen(null);
+        }
+        setOpen(i);
+    };
+    const[brandOpen,setbrandOpen]=useState(true);
+    const clickBrand = () => {
+        setbrandOpen(!brandOpen);
+      };
     return (
         <main>
             <div className="products-page">
@@ -163,13 +177,16 @@ const Products = () => {
                     <div id="primary-filter" className="filter-container" data-visible="false">
                         {/* <button className="close-filter" aria-controls="primary-filter" aria-expanded="false"></button> */}
                         <h3>Filters</h3>
+                        <button id="filterButton" onClick={handleClick}>Show Filters</button>
+                        {popup?
                         <div className="filter-items">
                             {data.map((filter, i) => (
-                                <div key={i} className="item">
+                                <div key={i} className="item" onClick={()=>toggle(i)}>
                                     <div className="item-title">
                                         <h4>{filter.title}</h4>
+                                        <span>{open===i?'-':'+'}</span>
                                     </div>
-                                    <div className="item-content">
+                                    <div className={open==i? 'item-contentShow':'item-content'}>
                                         <ul>
                                             {filter.content.map((option, index) => (
                                                 <li key={index}><input type="checkbox" name={filter.title} value={option.text} id={option.text}/><label htmlFor={option.text}>{option.text}</label></li>
@@ -178,11 +195,12 @@ const Products = () => {
                                     </div>
                                 </div>
                             ))}
-                            <div className="item">
+                            <div className="item" onClick={clickBrand}>
                                 <div className="item-title">
                                     <h4>BRANDS</h4>
+                                    <span>{brandOpen? '+':'-'}</span>
                                 </div>
-                                <div className="item-content">
+                                <div className={brandOpen? 'item-content':'item-contentShow'}>
                                     <ul>
                                         {brands && brands?.map((brand) => (
                                             <li key={brand.brand_id}><input type="checkbox" name="Brands" value={brand.brand_name} id={brand.brand_name}/><label htmlFor={brand.brand_name}>{brand.brand_name}</label></li>
@@ -190,7 +208,7 @@ const Products = () => {
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div>:""}
                         {/* <button className="done-filter" aria-controls="primary-filter" aria-expanded="false">Done</button> */}
                     </div>
                     <div className="products-container">

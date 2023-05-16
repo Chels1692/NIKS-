@@ -34,12 +34,13 @@ const Concerns = () => {
                     </div>
                     <div className="info-container">
                         <div>
+                            <img src={aging} alt="Aging skin concern" className="responsive"/>
                             <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
                             <Link to="/products">
                                 <button className="button button--pandora"><span>Anti-Aging Products</span></button>
                             </Link>
                         </div>
-                        <img src={aging} alt="Aging skin concern"/>
+                        <img src={aging} alt="Aging skin concern" className="response2"/>
                     </div>
                 </div>
                 <div className="info-card">
@@ -64,12 +65,13 @@ const Concerns = () => {
                     </div>
                     <div className="info-container">
                         <div>
+                            <img src={pores} alt="Texture skin concern" className="responsive"/>
                             <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
                             <Link to="/products">
                                 <button className="button button--pandora"><span>Texture Products</span></button>
                             </Link>
                         </div>
-                        <img src={pores} alt="Texture skin concern"/>
+                        <img src={pores} alt="Texture skin concern" className="response2"/>
                     </div>
                 </div>
                 <div className="info-card">

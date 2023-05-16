@@ -402,7 +402,9 @@ nav {
     padding: 20px;
     align-self: center;
 }
-
+.responsive{
+    display: none;
+}
 /*Footer*/
 footer {
     border-top: solid 1px #0C343D;
@@ -450,3 +452,86 @@ footer {
     margin: 0;
     padding: 10px 0;
 }
+#filterButton{
+    display: none;
+}
+@media screen and (max-width:480px){
+    .main-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap:1rem;
+    }
+    .filter-items{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: white;
+        width: 75vw;
+        padding: 1.5rem;
+    }
+    .item-title{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .item-content{
+        max-height: 0;
+        overflow: hidden;
+        transition:all 0.5s cubic-bezier(0,1,0,1);
+    }
+    .item-contentShow{
+        height: auto;
+        transition:all 0.5s cubic-bezier(0,1,0,1);
+    }
+    .item-contentShow ul{
+        list-style-type: none;
+    }
+    .item{
+        display: flex;
+        flex-direction: column;
+        border-top: none;
+        border-bottom:solid 1px #0C343D;
+    }
+    .image-container{
+        height: 70px;
+    }
+    .image-container img{
+        object-fit: cover;
+    }
+    .name-container p{
+        font-size: 0.5rem;
+    }
+    .results-cards{
+        justify-content: center;
+        gap:1rem;
+    }
+    #primary-filter h3{
+        display: none;
+    }
+    #filterButton{
+        display: block;
+        background-color: transparent;
+        border:none;
+        font-size: 1rem;
+        font-family: "chivo",sans-serif;
+        font-weight: bold;
+        width: 7rem;
+    }
+    #skin-concerns{
+        display: flex;
+        flex-direction: column;
+    }
+    .info-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .response2{
+        display: none;
+    }
+    .responsive{
+        display: block;
+    }
+} 

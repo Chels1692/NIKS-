@@ -33,6 +33,7 @@ const Home = () => {
                 {quiz && quiz?.map(content => (
                     <QuestionsBlock 
                         key={content.id}
+                        id={content.id}
                         length={quiz.length}
                         quizItem={content}
                         chosenAnswer={chosenAnswer}

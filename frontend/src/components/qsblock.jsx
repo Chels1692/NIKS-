@@ -1,8 +1,11 @@
 import {useState, useEffect, forwardRef} from 'react';
 import {Link} from "react-router-dom";
 import QuestionBlock from "./qblock";
+import step1 from "../img/step1.png";
+import step2 from "../img/step2.png";
+import step3 from "../img/step3.png";
 
-const QuestionsBlock = ({length, quizItem, chosenAnswer, setChosenAnswer, unansweredQuestionIds, setUnansweredQuestionIds, answerRef, refs}, ref) => {
+const QuestionsBlock = ({id, length, quizItem, chosenAnswer, setChosenAnswer, unansweredQuestionIds, setUnansweredQuestionIds, answerRef, refs}, ref) => {
     const [active, setActive] = useState(false);
     let isHidden = "hidden";
     for(let i = 0; i < length; i++) {
@@ -21,10 +24,12 @@ const QuestionsBlock = ({length, quizItem, chosenAnswer, setChosenAnswer, unansw
             }
         }
     }, [active, chosenAnswer, unansweredQuestionIds, answerRef, refs])
+    const imgs = [step1, step2, step3];
 
     return (
         <section ref={ref} id="quiz-items">
             <div className='questions-container'>
+                <img src={imgs[id]}/>
                 <h3 className="question-title">{quizItem.question}</h3>
                 <div className="choices-container">
                     {quizItem.choices && quizItem.choices?.map((choice, _index) => (

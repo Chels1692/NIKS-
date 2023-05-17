@@ -45,7 +45,7 @@ const Concerns = () => {
                                 <button className="button button--pandora"><span>Anti-Aging Products</span></button>
                             </Link>
                         </div>
-                        <img src={aging} alt="Aging skin concern"/>
+                        <img src={aging} alt="Aging skin concern" className="response2"/>
                     </div>
                 </div>
                 <div className="info-card">
@@ -75,7 +75,7 @@ const Concerns = () => {
                                 <button className="button button--pandora"><span>Texture Products</span></button>
                             </Link>
                         </div>
-                        <img src={pores} alt="Texture skin concern"/>
+                        <img src={pores} alt="Texture skin concern" className="response2"/>
                     </div>
                 </div>
                 <div className="info-card">

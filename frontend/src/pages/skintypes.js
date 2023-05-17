@@ -22,7 +22,7 @@ const Types = () => {
                         <img className ="pics" src={normal} alt="normalPic"></img>
                         <div>
                             <p className="descriptions">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero volutpat sed cras ornare arcu. Lectus vestibulum mattis ullamcorper velit sed ullamcorper. Vitae nunc sed velit dignissim. Felis eget velit aliquet sagittis. Enim nunc faucibus a pellentesque. At risus viverra adipiscing at in tellus integer. Volutpat commodo sed egestas egestas fringilla. Donec massa sapien faucibus et molestie. Odio facilisis mauris sit amet massa. Diam vel quam elementum pulvinar etiam non quam lacus. Tempor orci eu lobortis elementum nibh.</p>
-                            <Link to="/products">
+                            <Link to="/products/normal" state={{name: "normal", section: "skinTypes", from: "info"}}>
                                 <button className="button button--pandora"><span>Products for Normal Skin</span></button>
                             </Link>
                         </div>
@@ -36,7 +36,7 @@ const Types = () => {
                     <div className="info-container">
                         <div>
                             <p className="descriptions">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero volutpat sed cras ornare arcu. Lectus vestibulum mattis ullamcorper velit sed ullamcorper. Vitae nunc sed velit dignissim. Felis eget velit aliquet sagittis. Enim nunc faucibus a pellentesque. At risus viverra adipiscing at in tellus integer. Volutpat commodo sed egestas egestas fringilla. Donec massa sapien faucibus et molestie. Odio facilisis mauris sit amet massa. Diam vel quam elementum pulvinar etiam non quam lacus. Tempor orci eu lobortis elementum nibh.</p>
-                            <Link to="/products">
+                            <Link to="/products/oily" state={{name: "oily", section: "skinTypes", from: "info"}}>
                                 <button className="button button--pandora"><span>Products for Oily Skin</span></button>
                             </Link>
                         </div>
@@ -52,7 +52,7 @@ const Types = () => {
                         <img className ="pics" src={dry} alt="dryPic"></img>
                         <div>
                             <p className="descriptions">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero volutpat sed cras ornare arcu. Lectus vestibulum mattis ullamcorper velit sed ullamcorper. Vitae nunc sed velit dignissim. Felis eget velit aliquet sagittis. Enim nunc faucibus a pellentesque. At risus viverra adipiscing at in tellus integer. Volutpat commodo sed egestas egestas fringilla. Donec massa sapien faucibus et molestie. Odio facilisis mauris sit amet massa. Diam vel quam elementum pulvinar etiam non quam lacus. Tempor orci eu lobortis elementum nibh.</p>
-                            <Link to="/products">
+                            <Link to="/products/dry" state={{name: "dry", section: "skinTypes", from: "info"}}>
                                 <button className="button button--pandora"><span>Products for Dry Skin</span></button>
                             </Link>
                         </div>
@@ -66,7 +66,7 @@ const Types = () => {
                     <div className="info-container">
                         <div>
                             <p className="descriptions">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero volutpat sed cras ornare arcu. Lectus vestibulum mattis ullamcorper velit sed ullamcorper. Vitae nunc sed velit dignissim. Felis eget velit aliquet sagittis. Enim nunc faucibus a pellentesque. At risus viverra adipiscing at in tellus integer. Volutpat commodo sed egestas egestas fringilla. Donec massa sapien faucibus et molestie. Odio facilisis mauris sit amet massa. Diam vel quam elementum pulvinar etiam non quam lacus. Tempor orci eu lobortis elementum nibh.</p>
-                            <Link to="/products">
+                            <Link to="/products/combination" state={{name: "combination", section: "skinTypes", from: "info"}}>
                                 <button className="button button--pandora"><span>Products for Combination Skin</span></button>
                             </Link>
                         </div>

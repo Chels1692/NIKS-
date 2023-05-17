@@ -21,7 +21,7 @@ const Concerns = () => {
                         <img src={acne} alt="Acne skin concern"/>
                         <div>
                             <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                            <Link to="/products">
+                            <Link to="/products/acne" state={{name: "acne", section: "skinConcerns", from: "info"}}>
                                 <button className="button button--pandora"><span>Acne Products</span></button>
                             </Link>
                         </div>
@@ -35,7 +35,7 @@ const Concerns = () => {
                     <div className="info-container">
                         <div>
                             <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                            <Link to="/products">
+                            <Link to="/products/aging" state={{name: "aging", section: "skinConcerns", from: "info"}}>
                                 <button className="button button--pandora"><span>Anti-Aging Products</span></button>
                             </Link>
                         </div>
@@ -51,7 +51,7 @@ const Concerns = () => {
                         <img src={uneven} alt="Pigmentation skin concern"/>
                         <div>
                             <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                            <Link to="/products">
+                            <Link to="/products/pigmentation" state={{name: "pigmentation", section: "skinConcerns", from: "info"}}>
                                 <button className="button button--pandora"><span>Pigmentation Products</span></button>
                             </Link>
                         </div>
@@ -65,7 +65,7 @@ const Concerns = () => {
                     <div className="info-container">
                         <div>
                             <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                            <Link to="/products">
+                            <Link to="/products/texture" state={{name: "texture", section: "skinConcerns", from: "info"}}>
                                 <button className="button button--pandora"><span>Texture Products</span></button>
                             </Link>
                         </div>
@@ -81,7 +81,7 @@ const Concerns = () => {
                         <img src={eczema} alt="Medical skin concern"/>
                         <div>
                             <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                            <Link to="/products">
+                            <Link to="/products/medical" state={{name: "medical", section: "skinConcerns", from: "info"}}>
                                 <button className="button button--pandora"><span>Medical Products</span></button>
                             </Link>
                         </div>

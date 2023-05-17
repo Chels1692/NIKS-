@@ -11,8 +11,10 @@
    gap: 1rem;
 }
 #aboutHead{
-   background-image: url("../img/products.jpg");
-   background-position: center;
+   background-image: url("../img/about.jpg");
+   background-position: center 45%;
+   height: 60vh;
+   color: #EA9999;
 
 }
 #aboutText{

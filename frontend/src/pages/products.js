@@ -1,145 +1,263 @@
-// import {Link} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import {useState, useEffect} from "react";
 import ProductCard from "../components/productcard";
 
 const Products = () => {
-    // const pageNumbers = (total, max, current) => {
-    //     const half = Math.floor(max / 2);
-    //     let to = max;
-        
-    //     if(current + half >= total) {
-    //       to = total;
-    //     } else if(current > half) {
-    //       to = current + half ;
-    //     }
-        
-    //     let from = Math.max(to - max, 0);
-      
-    //     return Array.from({length: Math.min(total, max)}, (_, i) => (i + 1) + from);
-    //   }
-      
-    //   function PaginationButton(totalPages, maxPagesVisible = 10, currentPage = 1) {
-    //     let pages = pageNumbers(totalPages, maxPagesVisible, currentPage);
-    //     let currentPageBtn = null;
-    //     const buttons = new Map();
-    //     const disabled = {
-    //       prev: () => currentPage === 1 || currentPage > totalPages,
-    //       next: () => currentPage >= totalPages
-    //     }
-    //     const frag = document.createDocumentFragment();
-    //     const resultsContainer = document.querySelector(".main-container");
-    //     const header = document.querySelector(".title-container");
-    //     const grid = document.querySelector(".results-grid");
-    //     const pagination = document.querySelector(".pagination-container");
-            
-    //     const paginationContainer = document.createElement("div");
-    //     paginationContainer.classList.add("pagination-container");
-    //     resultsContainer.appendChild(paginationContainer);
+    const location = useLocation();
+    const sectionTitle = location.state?.title;
+    const sectionType = location.state?.section;
+    const sectionName = location.state?.name;
+    const resultsSkinType = location.state?.resultsSkinType
+    const resultsSkinConcern = location.state?.resultsSkinConcern
+    const from = location.state?.from
     
-    //     const pageBtns = document.createElement("div");
-    //     pageBtns.classList.add("page-btns");
-    //     paginationContainer.appendChild(pageBtns);
-    
+    let [checked, setChecked] = useState([]);
+    const [filterByProductType, setFilterByProductType] = useState([]);
+    const [filterBySkinConcern, setFilterBySkinConcern] = useState([]);
+    const [filterBySkinType, setFilterBySkinType] = useState([]);
+    const [filterByPreference, setFilterByPreference] = useState([]);
+    const [filterByBrand, setFilterByBrand] = useState([]);
+    const [filtersList, setFiltersList] = useState({
+        productTypes: [],
+        skinConcerns: [],
+        skinTypes: [],
+        preferences: [],
+        brands: []
+    })
+
+
+    const handleToggle = (value, section) => {
+        let list = [...checked];
+        if(checked.includes(value) === false) {
+            list.push(value);
+        } else {
+            list.splice(checked.indexOf(value), 1)
+        }
+        setChecked(list);
+        if(section == "productTypes") {
+            list = [...filterByProductType];
+            if(filterByProductType.includes(value) === false) {
+                list.push(value)
+            } else {
+                list.splice(filterByProductType.indexOf(value), 1)
+            }
+            setFilterByProductType(list);
+            handleFilters(list, section)
+        } else if(section == "skinConcerns") {
+            list = [...filterBySkinConcern];
+            if(filterBySkinConcern.includes(value) === false) {
+                list.push(value);
+            } else {
+                list.splice(filterBySkinConcern.indexOf(value), 1)
+            }
+            setFilterBySkinConcern(list)
+            handleFilters(list, section)
+        } else if(section == "skinTypes") {
+            list = [...filterBySkinType];
+            if(filterBySkinType.includes(value) === false) {
+                list.push(value);
+            } else {
+                list.splice(filterBySkinType.indexOf(value), 1)
+            }
+            setFilterBySkinType(list)
+            handleFilters(list, section)
+        } else if(section == "preferences") {
+            list = [...filterByPreference];
+            if(filterByPreference.includes(value) === false) {
+                list.push(value);
+            } else {
+                list.splice(filterByPreference.indexOf(value), 1)
+            }
+            setFilterByPreference(list)
+            handleFilters(list, section)
+        } else if(section == "brands") {
+            list = [...filterByBrand];
+            if(filterByBrand.includes(value) === false) {
+                list.push(value);
+            } else {
+                list.splice(filterByBrand.indexOf(value), 1)
+            }
+            setFilterByBrand(list)
+            handleFilters(list, section)
+        }
+    };
+
+    const handleClick = (value, section) => {
+        let list = [];
+        if(checked.includes(value) === false) {
+            list.push(value);
+        }
+        setChecked(list);
+        if(section == "productTypes") {
+            list = []
+            if(filterByProductType.includes(value) === false) {
+                list.push(value);
+            }  else {
+                list.splice(checked.indexOf(value), 1)
+            }
+            setFilterByProductType(list)
+            handleClickFilters(list, section)
+        } else if(section == "skinConcerns") {
+            list = []
+            if(filterBySkinConcern.includes(value) === false) {
+                list.push(value);
+            }
+            setFilterBySkinConcern(list)
+            handleClickFilters(list, section)
+        } else if(section == "skinTypes") {
+            list = []
+            if(filterBySkinType.includes(value) === false) {
+                list.push(value);
+            }
+            setFilterBySkinType(list)
+            handleClickFilters(list, section)
+        } else if(section == "preferences") {
+            list = []
+            if(filterByPreference.includes(value) === false) {
+                list.push(value);
+            }
+            setFilterByPreference(list)
+            handleClickFilters(list, section)
+        } else if(section == "brands") {
+            list = []
+            if(filterByBrand.includes(value) === false) {
+                list.push(value);
+            }
+            setFilterByBrand(list)
+            handleClickFilters(list, section)
+        }
+    };
+
+    const handleResults = (value, section) => {
+        let list = [...checked];
+        if(checked.includes(value) === false) {
+            list.push(value);
+        } else {
+            list.splice(checked.indexOf(value), 1)
+        }
+        setChecked(list);
+        if(section == "productTypes") {
+            list = [...filterByProductType];
+            if(filterByProductType.includes(value) === false) {
+                list.push(value);
+            } else {
+                list.splice(filterByProductType.indexOf(value), 1)
+            }
+            setFilterByProductType(list);
+            handleClickFilters(list, section)
+        } else if(section == "skinConcerns") {
+            list = [...filterBySkinConcern];
+            if(filterBySkinConcern.includes(value) === false) {
+                list.push(value);
+            } else {
+                list.splice(filterBySkinConcern.indexOf(value), 1)
+            }
+            setFilterBySkinConcern(list)
+            handleClickFilters(list, section)
+        } else if(section == "skinTypes") {
+            list = [...filterBySkinType];
+            if(filterBySkinType.includes(value) === false) {
+                list.push(value);
+            } else {
+                list.splice(filterBySkinType.indexOf(value), 1)
+            }
+            setFilterBySkinType(list)
+            handleClickFilters(list, section)
+        } else if(section == "preferences") {
+            list = [...filterByPreference];
+            if(filterByPreference.includes(value) === false) {
+                list.push(value);
+            } else {
+                list.splice(filterByPreference.indexOf(value), 1)
+            }
+            setFilterByPreference(list)
+            handleClickFilters(list, section)
+        } else if(section == "brands") {
+            list = [...filterByBrand];
+            if(filterByBrand.includes(value) === false) {
+                list.push(value);
+            } else {
+                list.splice(filterByBrand.indexOf(value), 1)
+            }
+            setFilterByBrand(list)
+            handleClickFilters(list, section)
+        }
+    };
+
+
+    const handleFilters = (filters, category) => {
+        const newFilters = { ...filtersList };
+
+        newFilters[category] = filters;
         
-    //     const createAndSetupButton = (label = '', cls = '', background = '', disabled = false, handleClick) => {
-    //         const buttonElement = document.createElement('button');
-    //         buttonElement.textContent = label;
-    //         buttonElement.className = `page-btn ${cls}`;
-    //         buttonElement.style.backgroundImage = background;
-    //         buttonElement.disabled = disabled;
-    //         buttonElement.addEventListener('click', e => {
-    //             handleClick(e);
-    //             this.update();
-    //             pageBtns.value = currentPage;
-    //             pageBtns.dispatchEvent(new CustomEvent('change', {detail: {currentPageBtn}}));
-    //         });
-            
-    //         return buttonElement;
-    //     }
+        getFilter(newFilters)
+        setFiltersList(newFilters)
+    }
+    const handleClickFilters = (filters, category) => {
+        const newFilters = { ...filtersList };
+
+        newFilters[category] = filters;
         
-    //     const onPageButtonClick = e => currentPage = Number(e.currentTarget.textContent);
-        
-    //     const onPageButtonUpdate = index => (btn) => {
-    //         btn.textContent = pages[index];
-            
-    //         if(pages[index] === currentPage) {
-    //             currentPageBtn.classList.remove('active-btn');
-    //             btn.classList.add('active-btn');
-    //             currentPageBtn = btn;
-    //             currentPageBtn.focus();
-    //         }
-    //     };
-    
-    //     buttons.set(
-    //       createAndSetupButton('', 'prev-btn', `url("../left-arrow.png")`, disabled.prev(), () => {currentPage -= 1; offsetNum -= 16;
-    //         offset = `&offset=${offsetNum}`;
-    //         current--;
-    //         resultsContainer.removeChild(header);
-    //         resultsContainer.removeChild(grid);
-    //         resultsContainer.removeChild(pagination);
-    //         fetchMenuRecipes();}),
-    //       (btn) => btn.disabled = disabled.prev()
-    //     )
-        
-    //     pages.map((pageNumber, index) => {
-    //       const isCurrentPage = currentPage === pageNumber;
-    //       const button = createAndSetupButton(
-    //         pageNumber, isCurrentPage ? 'num-btn active-btn' : 'num-btn', '', false, onPageButtonClick
-    //       );
-    //       if(isCurrentPage) {
-    //         currentPageBtn = button;
-    //       }
-    //       buttons.set(button, onPageButtonUpdate(index));
-    //     });
-        
-    //     buttons.set(
-    //       createAndSetupButton('', 'next-btn', `url("../right-arrow.png")`, disabled.next(), () => {currentPage += 1; offsetNum += 16;
-    //         offset = `&offset=${offsetNum}`;
-    //         current++;
-    //         resultsContainer.removeChild(header);
-    //         resultsContainer.removeChild(grid);
-    //         resultsContainer.removeChild(pagination);
-    //         fetchMenuRecipes();}),
-    //       (btn) => btn.disabled = disabled.next()
-    //     )
-        
-    //     buttons.forEach((_, btn) => frag.appendChild(btn));
-    //     pageBtns.appendChild(frag);
-        
-    //     this.render = () => {
-    //       paginationContainer.appendChild(pageBtns);
-    //     }
-        
-    //     this.update = (newPageNumber = currentPage) => {
-    //       currentPage = newPageNumber;
-    //       pages = pageNumbers(totalPages, maxPagesVisible, currentPage);
-    //       buttons.forEach((updateButton, btn) => updateButton(btn));
-    //     }
-        
-    //     this.onChange = (handler) => {
-    //       pageBtns.addEventListener('change', handler);
-    //     }
-    //   }
-    
-    //   let total = Math.ceil(totalResultNum / 16);  
-    //   const paginationButtons = new PaginationButton(total, 7, current);
-      
-    //   paginationButtons.render();
-    
-    // Ided();
-    // activeBtn();
+        setFiltersList(newFilters)
+    }
+
 
     const [products, setProducts] = useState("");
     const [brands, setBrands] = useState("");
 
+    let product, concerns, types, preferences, brand;
+
     const getProducts = async () => {
-      try {
-          const response = await fetch('http://localhost:8000/niks');
-          const json = await response.json();
-          setProducts(json);
-      } catch(err) {
-          console.log(err);
-      }
+        try {
+            const response = await fetch(`http://localhost:8000/niks/products/${sectionName}`);
+            const json = await response.json();
+            setProducts(json);
+        } catch(err) {
+            console.log(err);
+        }
+    }
+    const getFilter = async (filters) => {
+        product = filters.productTypes.toString();
+        concerns = filters.skinConcerns.toString();
+        types = filters.skinTypes.toString();
+        preferences = filters.preferences.toString();
+        brand = filters.brands.toString();
+        try {
+            const response = await fetch(`http://localhost:8000/niks?products=${product}&types=${types}&concerns=${concerns}&preferences=${preferences}&brands=${brand}`);
+            const json = await response.json();
+            setProducts(json);
+        } catch(err) {
+            console.log(err);
+        }
+    }
+    const getResults = async (product, concern, type) => {
+        try {
+            const response = await fetch(`http://localhost:8000/niks/results/${concern}/${type}/${product}`);
+            const json = await response.json();
+            setProducts(json);
+        } catch(err) {
+            console.log(err);
+        }
+    }
+    const getTypes = async () => {
+        try {
+            let type = sectionName.toLowerCase();
+            const response = await fetch(`http://localhost:8000/niks/products/type/${type}`);
+            const json = await response.json();
+            setProducts(json);
+        } catch(err) {
+            console.log(err);
+        }
+    }
+    const getConcerns = async () => {
+        try {
+            let concern = sectionName.toLowerCase();
+            const response = await fetch(`http://localhost:8000/niks/products/concerns/${concern}`);
+            const json = await response.json();
+            setProducts(json);
+        } catch(err) {
+            console.log(err);
+        }
     }
     const getBrands = async () => {
         try {
@@ -149,16 +267,107 @@ const Products = () => {
         } catch(err) {
             console.log(err);
         }
-      }
+    }
+
     useEffect(() => {
-        getProducts();
         getBrands();
     }, [])
+    useEffect(() => {
+        if(from === "nav" || from === "info" || from === "footer" || from === "all") {
+            if(sectionType == "productTypes") {
+                getProducts();
+                if(from === "all") {
+                    handleClick("", sectionType);
+                }
+            } else if(sectionType == "skinConcerns") {
+                getConcerns();
+            } else if(sectionType == "skinTypes") {
+                getTypes();
+            }
+        }
+    }, [sectionName, sectionType])
+    useEffect(() => {
+        if(from === "quiz") {
+            let filterName = "";
+            let filterConcernName = "";
+            if(sectionName == "Cleansers" || sectionName == "c") {
+                filterName = 'c';
+            } else if(sectionName == "Moisturizers" || sectionName == "m") {
+                filterName = 'm';
+            } else if(sectionName == "Exfoliators" || sectionName == "e") {
+                filterName = 'e';
+            } else if(sectionName == "Treatments, Toners & Serums" || sectionName == "t") {
+                filterName = 't';
+            } else if(sectionName == "SPF" || sectionName == "s") {
+                filterName = 's';
+            } else {
+                filterName = "";
+            }
+            
+            if(resultsSkinConcern == "texture") {
+                filterConcernName = 'skin texture';
+            } else if(resultsSkinConcern == "pigmentation") {
+                filterConcernName = 'skin tone';
+            } else if(resultsSkinConcern == "medical") {
+                filterConcernName = 'skin conditions';
+            } else if(resultsSkinConcern == "acne") {
+                filterConcernName = 'acne';
+            } else if(resultsSkinConcern == "aging") {
+                filterConcernName = 'aging';
+            } else {
+                filterConcernName = resultsSkinConcern;
+            }
+
+            getResults(filterName, filterConcernName, resultsSkinType)
+            handleResults(filterName, "productTypes")
+            handleResults(resultsSkinType, "skinTypes")
+            handleResults(filterConcernName, "skinConcerns")
+            setChecked([...checked, filterName, filterConcernName, resultsSkinType]);
+        }
+    }, [])
+    useEffect(() => {
+        if(from === "nav" || from === "info" || from === "footer") {
+            let filterName = "";
+            if(sectionType == "productTypes") {
+                if(sectionName == "Cleansers" || sectionName == "c") {
+                    filterName = 'c';
+                } else if(sectionName == "Moisturizers" || sectionName == "m") {
+                    filterName = 'm';
+                } else if(sectionName == "Exfoliators" || sectionName == "e") {
+                    filterName = 'e';
+                } else if(sectionName == "Treatments, Toners & Serums" || sectionName == "t") {
+                    filterName = 't';
+                } else if(sectionName == "SPF" || sectionName == "s") {
+                    filterName = 's';
+                } else {
+                    filterName = "";
+                }
+            } else if(sectionType == "skinConcerns") {
+                if(sectionName == "Acne") {
+                    filterName = 'acne';
+                } else if(sectionName == "Aging") {
+                    filterName = 'aging';
+                } else if(sectionName == "Texture") {
+                    filterName = 'skin texture';
+                } else if(sectionName == "Pigmentation") {
+                    filterName = 'skin tone';
+                } else if(sectionName == "Medical") {
+                    filterName = 'skin conditions';
+                } else {
+                    filterName = sectionName;
+                }
+            } else if(sectionType == "skinTypes") {
+                filterName = sectionName.toLowerCase();
+            }
+
+            handleClick(filterName, sectionType)
+        }
+    }, [sectionName]);
 
     return (
         <main>
             <div className="products-page">
-                <h1 className="products-title"></h1>
+                <h1 className="products-title">{sectionTitle}</h1>
                 <div className="main-container">
                     <div id="primary-filter" className="filter-container" data-visible="false">
                         {/* <button className="close-filter" aria-controls="primary-filter" aria-expanded="false"></button> */}
@@ -172,7 +381,8 @@ const Products = () => {
                                     <div className="item-content">
                                         <ul>
                                             {filter.content.map((option, index) => (
-                                                <li key={index}><input type="checkbox" name={filter.title} value={option.text} id={option.text}/><label htmlFor={option.text}>{option.text}</label></li>
+                                                <li key={index}><input type="checkbox" onChange={() => handleToggle(option.code, filter.class)} className={filter.class} name={filter.class} value={option.text} id={option.text} checked={checked.indexOf(option.code) !== -1 ? true : false}/><label htmlFor={option.text}>{option.text}</label></li>
+                                                // <li key={index}><input type="checkbox" onChange={() => handleToggle(option.code, filter.class)} className={filter.class} name={filter.class} value={option.text} id={option.text} checked={filterByProductType.indexOf(option.code) !== -1 ? true : filterBySkinConcern.indexOf(option.code) !== -1 ? true : filterBySkinType.indexOf(option.code) !== -1 ? true : filterByPreference.indexOf(option.code) !== -1 ? true : false}/><label htmlFor={option.text}>{option.text}</label></li>
                                             ))}
                                         </ul>
                                     </div>
@@ -184,8 +394,9 @@ const Products = () => {
                                 </div>
                                 <div className="item-content">
                                     <ul>
-                                        {brands && brands?.map((brand) => (
-                                            <li key={brand.brand_id}><input type="checkbox" name="Brands" value={brand.brand_name} id={brand.brand_name}/><label htmlFor={brand.brand_name}>{brand.brand_name}</label></li>
+                                        {brands && brands?.map((brand, i) => (
+                                            <li key={i}><input type="checkbox" onChange={() => handleToggle(brand.brand_name, "brands")} className="brands" name="BRANDS" value={brand.brand_name} id={brand.brand_name} checked={checked.indexOf(brand.brand_name) !== -1 ? true : false}/><label htmlFor={brand.brand_name}>{brand.brand_name}</label></li>
+                                            // <li key={i}><input type="checkbox" onChange={() => handleToggle(brand.brand_name, "brands")} className="brands" name="BRANDS" value={brand.brand_name} id={brand.brand_name} checked={filterByBrand.indexOf(brand.brand_name) == -1 ? false : true}/><label htmlFor={brand.brand_name}>{brand.brand_name}</label></li>
                                         ))}
                                     </ul>
                                 </div>
@@ -213,61 +424,93 @@ const Products = () => {
 const data = [
     {
         title: "PRODUCT TYPES",
+        class: "productTypes",
         content: [
             {
-                text: "Cleanser"
+                text: "Cleansers",
+                code: "c"
             },
             {
-                text: "Moisturizer"
+                text: "Moisturizers",
+                code: "m"
             },
             {
-                text: "Treatments & Serums"
+                text: "Treatments, Toners & Serums",
+                code: "t"
             },
             {
-                text: "Exfoliators"
+                text: "Exfoliators",
+                code: "e"
             },
             {
-                text: "Toners"
-            },
-            {
-                text: "SPF"
+                text: "SPF",
+                code: "s"
             }
         ]
     },
     {
         title: "SKIN CONCERNS",
+        class: "skinConcerns",
         content: [
             {
-                text: "Acne"
+                text: "Acne",
+                code: "acne"
             },
             {
-                text: "Aging"
+                text: "Aging",
+                code: "aging"
             },
             {
-                text: "Texture"
+                text: "Texture",
+                code: "skin texture"
             },
             {
-                text: "Pigmentation"
+                text: "Pigmentation",
+                code: "skin tone"
             },
             {
-                text: "Medical"
+                text: "Medical",
+                code: "skin conditions"
             }
         ]
     },
     {
         title: "SKIN TYPES",
+        class: "skinTypes",
         content: [
             {
-                text: "Oily"
+                text: "Oily",
+                code: "oily"
             },
             {
-                text: "Dry"
+                text: "Dry",
+                code: "dry"
             },
             {
-                text: "Combination"
+                text: "Combination",
+                code: "combination"
             },
             {
-                text: "Normal"
+                text: "Normal",
+                code: "normal"
+            }
+        ]
+    },
+    {
+        title: "INGREDIENT PREFERENCES",
+        class: "preferences",
+        content: [
+            {
+                text: "Vegan",
+                code: "vegan"
+            },
+            {
+                text: "Cruelty-Free",
+                code: "cruelty-free"
+            },
+            {
+                text: "Fragrance Free",
+                code: "fragrance-free"
             }
         ]
     }

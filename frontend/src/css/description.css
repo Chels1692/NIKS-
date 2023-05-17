@@ -9,15 +9,13 @@
 #productDescription{
    display: grid;
    grid-column-gap: 1rem;
-   grid-template-columns: repeat(13,minmax(6.4%,1fr));
+   grid-template-columns: 1fr;
    padding-bottom: 50px;
    border-bottom: solid 2px #000000;
 }
 #left{
-   grid-column: 1/span 7;
-   grid-row: 1/span 8;
+   grid-column: 1/span 1;
    align-self: start;
-   position: sticky;
    top: 2rem;
 }
 .product-img-container {
@@ -47,9 +45,18 @@
    list-style: none;
    padding: 0 0 0 10px;
 }
+.highlightList {
+   display: flex;
+   align-items: center;
+}
+.highlightList img {
+   width: 1.35em;
+   margin-right: 5px;
+   height: auto;
+}
 
 #right{
-   grid-column: 9/span 5;
+   grid-column: 1/span 1;
    display: flex;
    flex-direction: column;
 }
@@ -83,7 +90,6 @@
 }
 .desTabs {
    font-weight: 700;
-   font-size: 1.05em;
    padding-bottom: 2px;
    text-align: center;
    cursor: pointer;
@@ -112,7 +118,6 @@
    display: block;
 }
 
-
 /*Where to Buy*/
 #where{
    margin-top: 0;
@@ -140,4 +145,65 @@
 }
 .similarProducts{
    width: 24%;
+}
+
+@media (min-width: 740px) {
+   #productDescription{
+      grid-column-gap: 2rem;
+      grid-template-columns: repeat(8, minmax(6.4%,1fr));
+   }
+   #left{
+      grid-column: 1/span 4;
+      grid-row: 1/span 8;
+      position: sticky;
+   }
+
+   #right{
+      grid-column: 5/span 4;
+   }
+
+   /*Similar Products*/
+   #similarText{
+      margin-bottom: 1.5rem;
+   }
+   #similar{
+      display: flex;
+      flex-direction: row;
+      gap: 0.85rem;
+   }
+   .similarProducts{
+      width: 24%;
+   }
+}
+@media (min-width: 1024px) {
+
+   #productDescription{
+      grid-column-gap: 1rem;
+      grid-template-columns: repeat(13,minmax(6.4%,1fr));
+   }
+   #left{
+      grid-column: 1/span 7;
+      grid-row: 1/span 8;
+      position: sticky;
+   }
+
+   #right{
+      grid-column: 9/span 5;
+   }
+   .desTabs {
+      font-size: 1.05em;
+   }
+
+   /*Similar Products*/
+   #similarText{
+      margin-bottom: 1.5rem;
+   }
+   #similar{
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+   }
+   .similarProducts{
+      width: 24%;
+   }
 }

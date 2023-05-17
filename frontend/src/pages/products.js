@@ -364,47 +364,56 @@ const Products = () => {
         }
     }, [sectionName]);
 
+    const[popup,setPop]=useState(false);
+    const [open, setOpen] = useState(null);
+    const toggle=i=>{
+        if(open===i){
+            return setOpen(null);
+        }
+        setOpen(i);
+    };
     return (
         <main>
             <div className="products-page">
                 <h1 className="products-title">{sectionTitle}</h1>
                 <div className="main-container">
                     <div id="primary-filter" className="filter-container" data-visible="false">
-                        {/* <button className="close-filter" aria-controls="primary-filter" aria-expanded="false"></button> */}
                         <h3>Filters</h3>
-                        <div className="filter-items">
+                        <button className="filter-button" onClick={() => setPop(true)}>Show Filters</button>
+                        <div className="filter-items" data-visible={popup}>
+                        <button className="filter-button close-button" onClick={() => setPop(false)}>Done</button>
                             {data.map((filter, i) => (
-                                <div key={i} className="item">
-                                    <div className="item-title">
+                                <div key={i} className="item" aria-expanded={open}>
+                                    <div className="item-title" onClick={() =>toggle(i)}>
                                         <h4>{filter.title}</h4>
+                                        <span className="show-more">{open===i?'-':'+'}</span>
                                     </div>
-                                    <div className="item-content">
+                                    {open===i? <div className='item-content'>
                                         <ul>
                                             {filter.content.map((option, index) => (
                                                 <li key={index}><input type="checkbox" onChange={() => handleToggle(option.code, filter.class)} className={filter.class} name={filter.class} value={option.text} id={option.text} checked={checked.indexOf(option.code) !== -1 ? true : false}/><label htmlFor={option.text}>{option.text}</label></li>
-                                                // <li key={index}><input type="checkbox" onChange={() => handleToggle(option.code, filter.class)} className={filter.class} name={filter.class} value={option.text} id={option.text} checked={filterByProductType.indexOf(option.code) !== -1 ? true : filterBySkinConcern.indexOf(option.code) !== -1 ? true : filterBySkinType.indexOf(option.code) !== -1 ? true : filterByPreference.indexOf(option.code) !== -1 ? true : false}/><label htmlFor={option.text}>{option.text}</label></li>
                                             ))}
                                         </ul>
-                                    </div>
+                                    </div> : ""}
                                 </div>
                             ))}
-                            <div className="item">
-                                <div className="item-title">
+                            <div className="item" aria-expanded={open}>
+                                <div className="item-title"  onClick={() => toggle(5)}>
                                     <h4>BRANDS</h4>
+                                    <span>{open===5? '-':'+'}</span>
                                 </div>
-                                <div className="item-content">
+                                {open===5? <div className='item-content'>
                                     <ul>
                                         {brands && brands?.map((brand, i) => (
                                             <li key={i}><input type="checkbox" onChange={() => handleToggle(brand.brand_name, "brands")} className="brands" name="BRANDS" value={brand.brand_name} id={brand.brand_name} checked={checked.indexOf(brand.brand_name) !== -1 ? true : false}/><label htmlFor={brand.brand_name}>{brand.brand_name}</label></li>
-                                            // <li key={i}><input type="checkbox" onChange={() => handleToggle(brand.brand_name, "brands")} className="brands" name="BRANDS" value={brand.brand_name} id={brand.brand_name} checked={filterByBrand.indexOf(brand.brand_name) == -1 ? false : true}/><label htmlFor={brand.brand_name}>{brand.brand_name}</label></li>
                                         ))}
                                     </ul>
-                                </div>
+                                </div> : ""}
                             </div>
                         </div>
-                        {/* <button className="done-filter" aria-controls="primary-filter" aria-expanded="false">Done</button> */}
                     </div>
                     <div className="products-container">
+                        <p className="results-text">{products.length} Results</p>
                         <div className="results-cards">
                             {products && products?.map((product, i) => (
                                 <ProductCard 
